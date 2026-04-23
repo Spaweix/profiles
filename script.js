@@ -2,7 +2,7 @@ const musicBtn = document.getElementById('music-btn');
 const bgMusic = document.getElementById('bg-music');
 const musicIcon = document.getElementById('music-icon');
 const musicText = document.getElementById('music-text');
-ruz (istediğin gibi değiştirebilirsin)
+ruz (istediğin gibi değiştirebilir)
 bgMusic.volume = 0.3;
 
 musicBtn.addEventListener('click', () => {
