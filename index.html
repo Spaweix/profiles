@@ -9,16 +9,18 @@
 </head>
 <body>
 
-    <div class="audio-player-ui">
-        <i class="fas fa-music"></i>
-        <span>Soon...</span>
+    <div class="audio-player-ui" id="music-btn">
+        <i class="fas fa-play" id="music-icon"></i>
+        <span id="music-text">Play Music</span>
     </div>
+
+    <audio id="bg-music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
 
     <div class="profile-container">
         <img src="pfp.jpg" alt="Spaweix" class="avatar">
-        
         <h1 class="name">Spaweix</h1>
-        
         <p class="subtitle"></p>
         
         <div class="social-links">
@@ -29,5 +31,6 @@
         </div>
     </div>
 
+    <script src="script.js"></script>
 </body>
 </html>
