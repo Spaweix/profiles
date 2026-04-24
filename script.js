@@ -1,4 +1,3 @@
-// --- 1. Müzik Çalar ---
 const musicBtn = document.getElementById('music-btn');
 const bgMusic = document.getElementById('bg-music');
 const musicIcon = document.getElementById('music-icon');
@@ -22,9 +21,7 @@ musicBtn.addEventListener('click', () => {
     }
 });
 
-// --- 2. Custom Cursor ---
 const cursor = document.querySelector('.custom-cursor');
-// Tüm etkileşimli ögeleri seçiyoruz
 const links = document.querySelectorAll('a, .audio-player-ui, .avatar, button, .close-btn');
 
 document.addEventListener('mousemove', (e) => {
@@ -37,9 +34,8 @@ links.forEach(link => {
     link.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
 });
 
-// --- 3. Daktilo (Typewriter) Efekti ---
 const typeWriterElement = document.getElementById('typewriter');
-const texts = ["Software Developer", "Horror Writer", "Gamer", "Tech Enthusiast"];
+const texts = ["Gamer", "Writer", "Audiophile", "Tech Enthusiast"];
 let textIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
@@ -58,19 +54,18 @@ function typeWriter() {
     let typeSpeed = isDeleting ? 50 : 100;
 
     if (!isDeleting && charIndex === currentText.length) {
-        typeSpeed = 2000; // Yazı bitince bekleme süresi
+        typeSpeed = 2000; 
         isDeleting = true;
     } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         textIndex = (textIndex + 1) % texts.length;
-        typeSpeed = 500; // Silinince yeni yazıya geçmeden bekle
+        typeSpeed = 500; 
     }
 
     setTimeout(typeWriter, typeSpeed);
 }
-typeWriter(); // Başlat
+typeWriter(); 
 
-// --- 4. Projeler Modal (Açılır Pencere) ---
 const modal = document.getElementById("projects-modal");
 const btn = document.getElementById("open-modal-btn");
 const span = document.getElementsByClassName("close-btn")[0];
@@ -81,26 +76,18 @@ window.onclick = function(event) {
     if (event.target == modal) { modal.classList.remove("show"); }
 }
 
-// --- 5. Lanyard API (Discord Durumu) ---
-// DİKKAT: Aşağıdaki 'SENIN_DISCORD_ID_BURAYA' yazan yere kendi 18 haneli Discord ID'ni yazmalısın.
-const discordId = 'SENIN_DISCORD_ID_BURAYA'; 
+const discordId = '771027676055207938'; 
 
 async function fetchDiscordStatus() {
-    if (discordId === 'SENIN_DISCORD_ID_BURAYA') {
-        document.getElementById('d-text').textContent = 'ID Girilmedi';
-        return;
-    }
-    
     try {
         const response = await fetch(`https://api.lanyard.rest/v1/users/${discordId}`);
         const data = await response.json();
         
         if (data.success) {
-            const status = data.data.discord_status; // online, idle, dnd, offline
+            const status = data.data.discord_status; 
             const dot = document.getElementById('d-dot');
             const text = document.getElementById('d-text');
             
-            // Mevcut classları temizle ve yenisini ekle
             dot.className = 'status-dot ' + status;
             
             const statusMap = {
@@ -110,27 +97,26 @@ async function fetchDiscordStatus() {
                 'offline': 'Çevrimdışı'
             };
             
-            text.textContent = statusMap[status];
+            text.textContent = statusMap[status] || 'Çevrimdışı';
         }
     } catch (error) {
-        console.error('Discord durumu çekilemedi:', error);
+        console.error('Discord durumu güncellenemedi:', error);
     }
 }
 fetchDiscordStatus();
-setInterval(fetchDiscordStatus, 30000); // Her 30 saniyede bir günceller
+setInterval(fetchDiscordStatus, 15000);
 
-// --- 6. Particles.js (Arka plan toz/sis efekti) ---
 particlesJS('particles-js', {
   "particles": {
-    "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+    "number": { "value": 50, "density": { "enable": true, "value_area": 800 } },
     "color": { "value": "#ffffff" },
     "shape": { "type": "circle" },
-    "opacity": { "value": 0.2, "random": true },
-    "size": { "value": 3, "random": true },
+    "opacity": { "value": 0.3, "random": true },
+    "size": { "value": 2, "random": true },
     "line_linked": { "enable": false },
     "move": {
       "enable": true,
-      "speed": 1,
+      "speed": 0.8,
       "direction": "none",
       "random": true,
       "straight": false,
@@ -142,11 +128,10 @@ particlesJS('particles-js', {
     "detect_on": "canvas",
     "events": {
       "onhover": { "enable": true, "mode": "bubble" },
-      "onclick": { "enable": false },
       "resize": true
     },
     "modes": {
-      "bubble": { "distance": 200, "size": 4, "duration": 2, "opacity": 0.5, "speed": 3 }
+      "bubble": { "distance": 200, "size": 3, "duration": 2, "opacity": 0.6, "speed": 3 }
     }
   },
   "retina_detect": true
