@@ -112,7 +112,6 @@ body::before {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
 }
 
-/* Özel İmleç Tasarımı */
 .custom-cursor {
     width: 20px;
     height: 20px;
@@ -131,7 +130,6 @@ body::before {
     border-color: rgba(255, 255, 255, 1);
 }
 
-/* Markalara Özel Hover Efektleri */
 .social-links a[title*="Discord"]:hover {
     opacity: 1;
     color: #5865F2;
@@ -160,9 +158,6 @@ body::before {
     filter: drop-shadow(0 0 10px #ffffff);
 }
 
-/* --- YENİ EKLENEN ÖZELLİKLER --- */
-
-/* Parçacıklar Arka Planı */
 #particles-js {
     position: absolute;
     width: 100%;
@@ -173,7 +168,6 @@ body::before {
     pointer-events: none;
 }
 
-/* Discord Canlı Durum Kartı */
 .discord-status-container {
     display: flex;
     align-items: center;
@@ -200,7 +194,6 @@ body::before {
 .status-dot.idle { background-color: #faa61a; box-shadow: 0 0 8px #faa61a; }
 .status-dot.dnd { background-color: #ed4245; box-shadow: 0 0 8px #ed4245; }
 
-/* Typewriter (Daktilo) İmleci */
 .subtitle {
     font-size: 1.1rem;
     color: #ccc;
@@ -217,7 +210,6 @@ body::before {
     50% { border-color: #fff; }
 }
 
-/* Projeler Butonu */
 .projects-btn {
     margin-top: 20px;
     background: transparent;
@@ -240,7 +232,6 @@ body::before {
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
-/* Modal (Açılır Pencere) Tasarımı */
 .modal {
     display: none;
     position: fixed;
