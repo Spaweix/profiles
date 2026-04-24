@@ -3,27 +3,12 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    font-family: 'Inter', sans-serif;
-    background: url('bg.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    position: relative;
-    overflow: hidden;
-    cursor: none;
-    transition: background 1.5s ease;
+    font-family: 'Inter', sans-serif; background: url('bg.jpg') no-repeat center center fixed; background-size: cover; color: #fff;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; position: relative; overflow: hidden; cursor: none; transition: background 1.5s ease;
 }
 
-body::before {
-    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.45); z-index: 1; transition: background 1.5s ease;
-}
+body::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.45); z-index: 1; transition: background 1.5s ease; }
 
-/* Kan Modu (Easter Egg) */
 body.blood-mode::before { background: rgba(50, 0, 0, 0.75); }
 body.blood-mode { animation: glitch 0.15s 2; }
 
@@ -33,33 +18,28 @@ body.blood-mode { animation: glitch 0.15s 2; }
     100% { transform: translate(0); }
 }
 
-.profile-container { position: relative; z-index: 2; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 15px; animation: fadeIn 1.2s ease-out; }
+.profile-container { position: relative; z-index: 2; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 15px; animation: fadeIn 1.2s ease-out; width: 90%; max-width: 500px; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
 .avatar { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255, 255, 255, 0.15); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); cursor: none; }
-
 .name { font-size: 2.2rem; font-weight: 600; letter-spacing: 1.5px; transition: color 0.5s; }
 .blood-mode .name { color: #ff2222; text-shadow: 0 0 15px #ff0000; }
 
 .subtitle { font-size: 1.1rem; color: #ccc; min-height: 25px; border-right: 2px solid #fff; white-space: nowrap; overflow: hidden; padding-right: 5px; animation: blink 0.7s infinite; }
 @keyframes blink { from, to { border-color: transparent; } 50% { border-color: #fff; } }
 
-/* Marka Renkleri - Hover */
 .social-links { display: flex; gap: 25px; margin-top: 10px; }
 .social-links a { color: #fff; font-size: 1.8rem; text-decoration: none; opacity: 0.8; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: none; }
-
 .social-links a[title*="Discord"]:hover { color: #5865F2; transform: translateY(-8px) scale(1.2); filter: drop-shadow(0 0 10px #5865F2); opacity: 1; }
 .social-links a[title*="Steam"]:hover { color: #b8b6b4; transform: translateY(-8px) scale(1.2); filter: drop-shadow(0 0 10px #fff); opacity: 1; }
 .social-links a[title*="Spotify"]:hover { color: #1DB954; transform: translateY(-8px) scale(1.2); filter: drop-shadow(0 0 10px #1DB954); opacity: 1; }
 .social-links a[title*="GitHub"]:hover { color: #fff; transform: translateY(-8px) scale(1.2); filter: drop-shadow(0 0 10px #fff); opacity: 1; }
 
-/* UI Ögeleri */
 .audio-player-ui { position: absolute; top: 30px; left: 50%; transform: translateX(-50%); z-index: 2; display: flex; align-items: center; gap: 12px; background: rgba(255, 255, 255, 0.05); padding: 10px 20px; border-radius: 30px; border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px); font-size: 0.8rem; text-transform: uppercase; cursor: none; }
-
 .spotify-card { display: flex; align-items: center; gap: 12px; background: rgba(29, 185, 84, 0.1); border: 1px solid rgba(29, 185, 84, 0.3); padding: 8px 15px; border-radius: 12px; margin-top: 5px; backdrop-filter: blur(5px); }
 .spotify-info { text-align: left; line-height: 1.2; }
-#song-name { font-size: 0.85rem; font-weight: 600; display: block; }
-#artist-name { font-size: 0.75rem; color: #aaa; }
+#song-name { font-size: 0.85rem; font-weight: 600; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 150px; }
+#artist-name { font-size: 0.75rem; color: #aaa; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 150px; }
 
 .discord-status-container { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: #aaa; }
 .status-dot { width: 10px; height: 10px; border-radius: 50%; background: #747f8d; }
@@ -81,3 +61,17 @@ body.blood-mode { animation: glitch 0.15s 2; }
 .project-item { background: rgba(255,255,255,0.05); margin-top: 15px; padding: 15px; border-radius: 10px; border-left: 3px solid #fff; }
 
 #particles-js { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 1; pointer-events: none; }
+
+/* TELEFON VE TABLETLER İÇİN MOBİL UYUMLULUK KODLARI */
+@media screen and (max-width: 768px) {
+    body, a, .avatar, button, .close-btn, .audio-player-ui { cursor: auto !important; }
+    .custom-cursor { display: none !important; }
+    .avatar { width: 100px; height: 100px; }
+    .name { font-size: 1.8rem; }
+    .subtitle { font-size: 1rem; }
+    .social-links { gap: 15px; }
+    .social-links a { font-size: 1.5rem; }
+    .audio-player-ui { top: 15px; padding: 8px 15px; font-size: 0.7rem; }
+    .modal-content { padding: 20px; }
+    #song-name, #artist-name { max-width: 120px; }
+}
