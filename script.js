@@ -17,19 +17,21 @@ musicBtn.addEventListener('click', () => {
     }
 });
 
-// --- 2. Custom Cursor ---
+// --- 2. Custom Cursor (Sadece bilgisayarda çalışır) ---
 const cursor = document.querySelector('.custom-cursor');
 const targets = document.querySelectorAll('a, .audio-player-ui, .avatar, button, .close-btn');
 
-document.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-});
+if (window.innerWidth > 768) {
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    });
 
-targets.forEach(t => {
-    t.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
-    t.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
-});
+    targets.forEach(t => {
+        t.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
+        t.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
+    });
+}
 
 // --- 3. Daktilo (Typewriter) ---
 const typeWriterElement = document.getElementById('typewriter');
@@ -53,7 +55,7 @@ const closeBtn = document.querySelector(".close-btn");
 
 openBtn.onclick = () => modal.classList.add("show");
 closeBtn.onclick = () => modal.classList.remove("show");
-window.onclick = (e) => { if (e.target == modal) modal.classList.remove("show"); }
+window.onclick = (e) => { if (e.target === modal) modal.classList.remove("show"); }
 
 // --- 5. Lanyard (Discord & Spotify) ---
 const discordId = '771027676055207938';
@@ -88,7 +90,7 @@ function loadParticles(color) {
 }
 loadParticles("#ffffff");
 
-// --- 7. LUELLA EASTER EGG (Müzik Yavaşlatma Dahil) ---
+// --- 7. LUELLA EASTER EGG ---
 let input = "";
 document.addEventListener('keydown', (e) => {
     input += e.key.toLowerCase();
