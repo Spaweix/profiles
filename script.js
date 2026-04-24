@@ -116,7 +116,7 @@ function triggerLuellaEffect() {
     document.body.classList.add('blood-mode');
     
     // İsmi değiştir
-    document.getElementById('profile-name').textContent = "LUELLA UYANDI...";
+    document.getElementById('profile-name').textContent = "ERROR 404...";
     
     // Daktilodaki yazıları karanlık temaya çevir
     texts = ["Sessizlik bozuldu.", "Kimse güvende değil.", "O burada."];
